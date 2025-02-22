@@ -2,22 +2,22 @@
  * @param {number[]} nums
  * @return {number}
  */
-var majorityElement = function(nums) {
-    const counts = {};
-    for (let i = 0; i < nums.length; i++) {
-        let num = nums[i];
-        if (counts[num] == null) counts[num] = 1;
-        else counts[num]++;
+const majorityElement = function(nums) {
+    const count = {};
+
+    for (let num of nums) {
+        if (!count[num]) count[num] = 1;
+        else count[num]++;
     }
 
-    let maxCount = 0;
-    let maxNum = 0;
+    let cnt = 0;
+    let val = 0;
 
-    for (num in counts) {
-        if (+counts[num] > maxCount) {
-            maxCount = +counts[num];
-            maxNum = +num;
+    for (let num in count) {
+        if (count[num] > cnt) {
+            cnt = count[num];
+            val = Number(num);
         }
     }
-    return maxNum;
+    return val;
 };
