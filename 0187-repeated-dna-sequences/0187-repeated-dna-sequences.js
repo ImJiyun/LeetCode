@@ -3,20 +3,13 @@
  * @return {string[]}
  */
 const findRepeatedDnaSequences = function(s) {
-    let window = s.slice(0, 10);
-    let leftWindowIdx = 0;
-    const answer = new Set();
+    const seen = new Set();
+    const repeated = new Set();
 
-    while (leftWindowIdx <= s.length - 10) {
-        for (let leftIdx = leftWindowIdx + 1; leftIdx <= s.length - 10; leftIdx++) {
-            const str = s.slice(leftIdx, leftIdx + 10);
-            if (window === str) {
-                answer.add(window);
-                break;
-            }
-        }
-        leftWindowIdx++;
-        window = s.slice(leftWindowIdx, leftWindowIdx + 10);
+    for (let left = 0; left <= s.length - 10; left++) {
+        const substring = s.slice(left, left+10);
+        if (seen.has(substring)) repeated.add(substring);
+        else seen.add(substring);
     }
-    return [...answer];
+    return [...repeated];
 };
