@@ -4,27 +4,22 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        N = len(height)
-        left_max_height, right_max_height = 0, 0
-        left_max_heights = [0] * N
-        right_max_heights = [0] * N
-
-        for i in range(N):
-            left_max_height = max(left_max_height, height[i])
-            left_max_heights[i] = left_max_height
-
-        for i in range(N-1, -1, -1):
-            right_max_height = max(right_max_height, height[i])
-            right_max_heights[i] = right_max_height
-
-        heights = [0] * N
-
-        for i in range(N):
-            heights[i] = min(left_max_heights[i], right_max_heights[i])
-
+        left_max, right_max = 0, 0
+        left, right = 0, len(height)-1
         rain = 0
 
-        for i in range(N):
-            rain += heights[i] - height[i]
+        while left < right:
+            if height[left] < height[right]:
+                if height[left] > left_max:
+                    left_max = height[left]
+                else:
+                    rain += left_max - height[left]
+                left += 1
+            else:
+                if height[right] > right_max:
+                    right_max = height[right]
+                else:
+                    rain += right_max - height[right]    
+                right -= 1    
 
-        return rain
+        return rain        
