@@ -21,7 +21,6 @@ class Solution(object):
             for ch in cnts:
                 if window_cnts[ch] < cnts[ch]:
                     return False
-            print(window_cnts)        
             return True
 
         ans = ""
