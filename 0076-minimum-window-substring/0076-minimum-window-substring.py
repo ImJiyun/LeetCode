@@ -14,28 +14,30 @@ class Solution(object):
 
         left, right, N = 0, 0, len(s)    
         min_len = float('inf')
-
         window_cnts = defaultdict(int)
 
-        def check():
-            for ch in cnts:
-                if window_cnts[ch] < cnts[ch]:
-                    return False
-            return True
+        required = len(cnts)
+        formed = 0
 
         ans = ""
         while right < N:
-            window_cnts[s[right]] += 1
+            ch = s[right]
+            window_cnts[ch] += 1
 
-            while check():
+            if ch in cnts and window_cnts[ch] == cnts[ch]:
+                formed += 1
+
+            while formed == required:
                 cur_len = right-left+1
-
                 if cur_len < min_len:
                     min_len = cur_len
-                    ans = s[left: right+1]
+                    ans = s[left:right+1]
 
                 window_cnts[s[left]] -= 1
-                left += 1
+
+                if s[left] in cnts and window_cnts[s[left]] < cnts[s[left]]:
+                    formed -= 1
+                left += 1      
             
             right += 1
 
