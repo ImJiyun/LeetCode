@@ -1,9 +1,12 @@
-# Write your MySQL query statement below
-SELECT name as Customers
-FROM Customers
-WHERE id NOT IN (
-    SELECT o.customerId
-    FROM Customers c
-    JOIN Orders o
-    ON c.id = o.customerId
-)
+-- Write your PostgreSQL query statement below
+SELECT
+    name AS Customers 
+FROM
+    Customers
+WHERE
+    id NOT IN (
+        SELECT
+            customerId
+        FROM 
+            Orders
+    )
