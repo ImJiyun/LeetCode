@@ -59,7 +59,7 @@ WITH loyal_cstmrs AS (
         AND
         active_days >= 30
         AND
-        refund_rate <= 0.2
+        refund_rate < 0.2
 )
 
 SELECT
