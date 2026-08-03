@@ -6,6 +6,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Database
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [1068-product-sales-analysis-i](https://github.com/ImJiyun/LeetCode/tree/main/1068-product-sales-analysis-i/) | Easy |
 | [1321-restaurant-growth](https://github.com/ImJiyun/LeetCode/tree/main/1321-restaurant-growth/) | Medium |
 | [3421-find-students-who-improved](https://github.com/ImJiyun/LeetCode/tree/main/3421-find-students-who-improved/) | Medium |
 | [3497-analyze-subscription-conversion](https://github.com/ImJiyun/LeetCode/tree/main/3497-analyze-subscription-conversion/) | Medium |
